@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern, responsive job application form demo.">
+  <meta name="theme-color" content="#f5f7ff">
+  <title>CareerLaunch | Job Application</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Site header: brand and application status -->
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="CareerLaunch home">
+      <span class="brand-icon" aria-hidden="true">CL</span>
+      <span>Career<span class="brand-highlight">Launch</span></span>
+    </a>
+    <span class="open-pill"><span class="status-dot" aria-hidden="true"></span> Applications open</span>
+  </header>
+
+  <main id="top" class="page-wrap">
+    <!-- Intro section: page title and short feature list -->
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+      <h1 id="page-title">Make your next move.</h1>
+      <p class="hero-copy">Great opportunities start with a simple step. Tell us about yourself and the role you’re excited about.</p>
+      <div class="benefits" aria-label="Application benefits">
+        <span><span class="check" aria-hidden="true">✓</span> Quick application</span>
+        <span><span class="check" aria-hidden="true">✓</span> Resume upload</span>
+        <span><span class="check" aria-hidden="true">✓</span> Mobile friendly</span>
+      </div>
+    </section>
+
+    <!-- Main application card contains the complete form -->
+    <section class="form-card" aria-labelledby="form-title">
+      <div class="form-card-head">
+        <div>
+          <p class="section-label">APPLICATION FORM</p>
+          <h2 id="form-title">Let’s get to know you</h2>
+          <p class="head-copy">Fill in the details below. Fields marked <span class="required-star">*</span> are required.</p>
+        </div>
+        <div class="step-badge" aria-hidden="true"><span>01</span><small>OF 01</small></div>
+      </div>
+
+      <!-- novalidate lets JavaScript display consistent inline error messages -->
+      <form id="job-application-form" novalidate>
+        <!-- Fieldset groups related inputs; legend gives each group a heading -->
+        <fieldset>
+          <legend><span class="legend-number">01</span> Personal information</legend>
+          <div class="form-grid">
+            <div class="field">
+              <label for="first_name">First name <span class="required-star">*</span></label>
+              <input id="first_name" name="first_name" type="text" placeholder="e.g. Atul" autocomplete="given-name" minlength="2" required>
+              <small class="error" id="first_name-error"></small>
+            </div>
+            <div class="field">
+              <label for="last_name">Last name <span class="required-star">*</span></label>
+              <input id="last_name" name="last_name" type="text" placeholder="e.g. Maurya" autocomplete="family-name" minlength="2" required>
+              <small class="error" id="last_name-error"></small>
+            </div>
+            <div class="field">
+              <label for="email">Email address <span class="required-star">*</span></label>
+              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+              <small class="error" id="email-error"></small>
+            </div>
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel">
+              <small class="hint">Include your country code if possible.</small>
+              <small class="error" id="phone-error"></small>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend><span class="legend-number">02</span> Role and location</legend>
+          <div class="form-grid">
+            <div class="field">
+              <label for="job_role">Position applying for <span class="required-star">*</span></label>
+              <select id="job_role" name="job_role" required>
+                <option value="">Choose a role</option>
+                <option value="frontend">Frontend Developer</option>
+                <option value="backend">Backend Developer</option>
+                <option value="full_stack">Full Stack Developer</option>
+                <option value="software_engineer_intern">Software Engineer Intern</option>
+                <option value="ui_ux">UI/UX Designer</option>
+                <option value="other">Other</option>
+              </select>
+              <small class="error" id="job_role-error"></small>
+            </div>
+            <div class="field">
+              <label for="city">City <span class="required-star">*</span></label>
+              <input id="city" name="city" type="text" placeholder="Your city" autocomplete="address-level2" required>
+              <small class="error" id="city-error"></small>
+            </div>
+            <div class="field field-full">
+              <label for="address">Address <span class="optional">(optional)</span></label>
+              <textarea id="address" name="address" rows="3" placeholder="Street, area, or locality" autocomplete="street-address"></textarea>
+            </div>
+            <div class="field">
+              <label for="pincode">Postal / PIN code</label>
+              <input id="pincode" name="pincode" type="text" placeholder="e.g. 226010" inputmode="numeric" autocomplete="postal-code" maxlength="12">
+              <small class="error" id="pincode-error"></small>
+            </div>
+            <div class="field">
+              <label for="available_date">Available from</label>
+              <input id="available_date" name="available_date" type="date">
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Resume, work preference, and short introduction -->
+        <fieldset>
+          <legend><span class="legend-number">03</span> Resume and preferences</legend>
+          <div class="field">
+            <label for="resume">Upload your resume <span class="required-star">*</span></label>
+            <label class="upload-area" for="resume">
+              <span class="upload-symbol" aria-hidden="true">↑</span>
+              <span class="upload-text"><strong>Choose a resume file</strong><span>PDF, DOC, or DOCX · up to 5 MB</span></span>
+              <span class="browse-button">Browse files</span>
+            </label>
+            <input class="visually-hidden-file" id="resume" name="resume" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+            <p id="file-name" class="file-name" aria-live="polite">No file selected</p>
+            <small class="error" id="resume-error"></small>
+          </div>
+
+          <div class="field preference-field">
+            <span class="field-label">Work preference <span class="optional">(optional)</span></span>
+            <div class="radio-row">
+              <label class="radio-card"><input type="radio" name="work_preference" value="onsite"><span>On-site</span></label>
+              <label class="radio-card"><input type="radio" name="work_preference" value="hybrid"><span>Hybrid</span></label>
+              <label class="radio-card"><input type="radio" name="work_preference" value="remote"><span>Remote</span></label>
+            </div>
+          </div>
+
+          <div class="field intro-field">
+            <label for="cover_letter">A little about you <span class="optional">(optional)</span></label>
+            <textarea id="cover_letter" name="cover_letter" rows="4" maxlength="1000" placeholder="What makes you a good fit for this role? Share a few details about your skills or interests."></textarea>
+            <div class="textarea-meta"><span>Keep it clear and concise.</span><span><b id="char-count">0</b> / 1000</span></div>
+          </div>
+        </fieldset>
+
+        <div class="consent-wrap">
+          <label class="consent-label" for="consent">
+            <input id="consent" name="consent" type="checkbox" required>
+            <span>I confirm that the information provided is accurate and may be used to contact me about this application. <span class="required-star">*</span></span>
+          </label>
+          <small class="error" id="consent-error"></small>
+        </div>
+
+        <div class="form-actions">
+          <p class="privacy-note"><span aria-hidden="true">🔒</span> Your information stays in this demo form.</p>
+          <button class="submit-button" type="submit">Review application <span aria-hidden="true">→</span></button>
+        </div>
+        <!-- JavaScript writes success or error feedback into this live region -->
+        <div id="form-message" class="form-message" role="status" aria-live="polite" hidden></div>
+        <p class="demo-note">Demo project: this form validates entries in your browser but does not send or save an application. A backend is required for real submissions.</p>
+      </form>
+    </section>
+
+    <footer class="site-footer">
+      <span>© <span id="year"></span> CareerLaunch</span>
+      <span>Designed with care · HTML, CSS & JavaScript</span>
+    </footer>
+  </main>
+</body>
+</html>

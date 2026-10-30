@@ -1,0 +1,129 @@
+/* -----------------------------------------
+   1. Global Design Tokens
+   Reusable colors and layout values
+------------------------------------------ */
+
+:root {
+  font-family: Inter, Arial, sans-serif;
+
+  color: #f1f5f9;
+  background-color: #080b14;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Background colors */
+  --color-background: #080b14;
+  --color-surface: #101625;
+  --color-surface-hover: #151e30;
+
+  /* Text colors */
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #a1aec2;
+
+  /* Accent colors */
+  --color-accent: #4f8cff;
+  --color-accent-hover: #76a5ff;
+  --color-accent-soft: #182b4d;
+
+  /* Borders */
+  --color-border: #253047;
+
+  /* Layout */
+  --container-width: 1120px;
+  --page-gutter: 24px;
+
+  /* Rounded corners */
+  --radius-small: 8px;
+  --radius-medium: 14px;
+  --radius-large: 20px;
+}
+
+/* -----------------------------------------
+   2. Predictable Element Sizing
+------------------------------------------ */
+
+* {
+  box-sizing: border-box;
+}
+
+/* -----------------------------------------
+   3. Base Page Styles
+------------------------------------------ */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* -----------------------------------------
+   4. Default Element Styles
+------------------------------------------ */
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+/* -----------------------------------------
+   5. Accessibility
+------------------------------------------ */
+
+:focus-visible {
+  outline: 3px solid var(--color-accent-hover);
+  outline-offset: 4px;
+}
+
+/* Respect users who prefer less animation */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
