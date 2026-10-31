@@ -343,7 +343,7 @@ function App() {
               &#10094;
             </button>
 
-            <p className="projects__hint">Scroll to explore more projects</p>
+            <p className="projects__hint">Scroll to explore projects</p>
 
             <button
               type="button"
